@@ -16,21 +16,22 @@ namespace AppImporter
 			Configuration = configuration;
 		}
 
-		public IConfiguration Configuration { get; }		
+		public IConfiguration Configuration { get; }
 
 		public void ConfigureServices(IServiceCollection services)
-		{		
-			services.Configure<ArchiveOptions>(Configuration.GetSection("ArchiveOptions"));			
+		{
+			services.Configure<ArchiveOptions>(Configuration.GetSection("ArchiveOptions"));
 			services.AddScoped<IImporterCsvService, ImporterCsvService>();
 			services.AddScoped<IBulckCopy, BulckCopy>();
-			services.AddDbContext<ApplicationDbContext>(options => {
-				options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));	
+			services.AddDbContext<ApplicationDbContext>(options =>
+			{
+				options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 			});
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IImporterCsvService importerCsvService)
 		{
-			app.UseDeveloperExceptionPage();			
+			app.UseDeveloperExceptionPage();
 
 			importerCsvService.MigrateCsvToTable();
 		}

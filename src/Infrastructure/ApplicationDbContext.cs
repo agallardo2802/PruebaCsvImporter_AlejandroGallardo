@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure
 {
-	public class ApplicationDbContext: DbContext 
-	{		
+	public class ApplicationDbContext : DbContext
+	{
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-			:base(options)
+			: base(options)
 		{
-			
+
 		}
 
 		public ApplicationDbContext()
@@ -19,12 +19,13 @@ namespace Infrastructure
 		{
 			if (!optionsBuilder.IsConfigured)
 			{
+				//Cuando es Test
 				optionsBuilder.UseSqlServer("Data Source=ALEJANDRO\\SQLEXPRESS;Initial Catalog=DBStock;Integrated Security=True");
-			}			
-			
+			}
+
 			base.OnConfiguring(optionsBuilder);
 		}
 
-		public DbSet<TStock> TStock { get; set; }		
+		public DbSet<TStock> TStock { get; set; }
 	}
 }

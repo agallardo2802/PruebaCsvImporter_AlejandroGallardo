@@ -30,7 +30,7 @@ namespace AppImporter
 		static void BuildConfiguration(IConfigurationBuilder builder)
 		{
 			builder.SetBasePath(Directory.GetCurrentDirectory())
-			   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)			 
+			   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
 			   .AddEnvironmentVariables();
 		}
 
@@ -41,6 +41,6 @@ namespace AppImporter
 				   webBuilder.UseStartup<Startup>();
 			   });
 
-		
+
 	}
 }

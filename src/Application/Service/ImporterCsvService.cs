@@ -9,13 +9,13 @@ using System.Net;
 namespace Application.Service
 {
 	public class ImporterCsvService : IImporterCsvService
-	{	
-		private readonly ArchiveOptions archiveOptions;	
+	{
+		private readonly ArchiveOptions archiveOptions;
 		private readonly IBulckCopy bulckCopy;
 
 		public ImporterCsvService(IOptions<ArchiveOptions> archiveOptions, IBulckCopy bulckCopy)
 		{
-			this.archiveOptions = archiveOptions.Value;			
+			this.archiveOptions = archiveOptions.Value;
 			this.bulckCopy = bulckCopy;
 		}
 
@@ -45,14 +45,14 @@ namespace Application.Service
 			{
 				Log.Error("Process failed, Error: " + error);
 				return "Error";
-			}			
+			}
 		}
 
 		private void ObtainFile(string routeCsv)
 		{
 			if (!File.Exists(routeCsv))
 			{
-				Log.Information("Start download csv in path: "+routeCsv);
+				Log.Information("Start download csv in path: " + routeCsv);
 				WebClient wc = new WebClient();
 				wc.DownloadFile(archiveOptions.ArchiveCsvRoute, routeCsv);
 

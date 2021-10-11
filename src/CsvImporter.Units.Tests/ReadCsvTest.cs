@@ -23,7 +23,7 @@ namespace CsvImporter.Units.Tests
 			var read = csvContext.Read<TStock>(@"C:\Users\aleja\source\projects\CsvImporter\src\CsvImporter.Units.Tests\FileTest\StockTest.CSV", inputFileDescription);
 
 			// Act and Assert
-			Assert.NotNull(read);			
+			Assert.NotNull(read);
 		}
-	}	
+	}
 }

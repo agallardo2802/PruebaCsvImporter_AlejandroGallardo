@@ -2,30 +2,32 @@ using Application.Configurations;
 using Application.Service;
 using Infrastructure;
 using Microsoft.Extensions.Options;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace CsvImporter.Integrations.Tests
-{
-	[TestClass]
+{	
 	public class LoadCsvDataIntoSqlServerTest
 	{
 		private readonly IOptions<ArchiveOptions> archiveOptions;
 		private readonly IBulckCopy bulckCopy;
 		private readonly IImporterCsvService importerCsv;
-		
+
 		public LoadCsvDataIntoSqlServerTest()
-		{		
+		{
 			bulckCopy = new BulckCopy(new ApplicationDbContext());
 			archiveOptions = Options.Create(ObtainOptions());
 			importerCsv = new ImporterCsvService(archiveOptions, bulckCopy);
 		}
-		
-		[TestMethod]
-		public void Migrate_Test()
-		{	
-			var value = importerCsv.MigrateCsvToTable(); 
 
-			NUnit.Framework.Assert.AreEqual("Ok",value);			
+		[Fact]
+		public void Migrate_Test()
+		{
+			// Act
+			var value = importerCsv.MigrateCsvToTable();
+			
+			// Act and Assert
+			Assert.NotNull(value);
+			Assert.Equal("Ok", value);
 		}
 
 		private static ArchiveOptions ObtainOptions()

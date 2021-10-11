@@ -1,5 +1,4 @@
-﻿using Domain;
-using Domain.Entities;
+﻿using Domain.Entities;
 using EFCore.BulkExtensions;
 using Infrastructure;
 using LINQtoCSV;
@@ -22,14 +21,14 @@ namespace Application.Service
 		{
 			var countAdded = 0;
 			try
-			{				
+			{
 				CsvContext csvContext;
 				CsvFileDescription inputFileDescription;
 				NewContext(out csvContext, out inputFileDescription, separatorCsv);
 
 				Log.Information("Obtain data to csv");
 				var rowsCsvFile = csvContext.Read<TStock>(fileName, inputFileDescription);
-								
+
 				Log.Information("Start parse data Csv in List");
 
 				var listRowCsv = rowsCsvFile.ToList().SplitList(batchSize);
@@ -39,7 +38,7 @@ namespace Application.Service
 				using (var context = dbContext)
 				{
 					Log.Information("Clean table: " + nameTable);
-					context.Truncate<TStock>();				
+					context.Truncate<TStock>();
 
 					Log.Information("Copy data in table: " + nameTable);
 
@@ -66,9 +65,8 @@ namespace Application.Service
 			inputFileDescription = new CsvFileDescription
 			{
 				SeparatorChar = separatorCsv,
-				FirstLineHasColumnNames = true,
-				// default is the current culture
-				FileCultureName = "es-ES", 
+				FirstLineHasColumnNames = true,			
+				FileCultureName = "es-ES",
 				EnforceCsvColumnAttribute = true
 			};
 		}

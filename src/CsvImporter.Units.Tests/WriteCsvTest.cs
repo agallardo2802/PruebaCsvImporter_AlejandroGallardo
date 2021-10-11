@@ -31,7 +31,7 @@ namespace CsvImporter.Units.Tests
 			var result = TestWrite(inputFileDescription, listAdd);
 
 			// Act and Assert
-			Assert.NotNull(result);			
+			Assert.NotNull(result);
 		}
 		public string TestWrite(CsvFileDescription inputFileDescription, TStock[] listAdd)
 		{
@@ -40,5 +40,5 @@ namespace CsvImporter.Units.Tests
 			cc.Write(listAdd, stream, inputFileDescription);
 			return stream.ToString();
 		}
-	}	
+	}
 }

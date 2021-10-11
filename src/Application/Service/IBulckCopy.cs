@@ -1,6 +1,4 @@
-﻿using LINQtoCSV;
-
-namespace Application.Service
+﻿namespace Application.Service
 {
 	public interface IBulckCopy
 	{

@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvImporter.Units.Tests", "src\CsvImporter.Units.Tests\CsvImporter.Units.Tests.csproj", "{3756950F-8367-4D9D-82D3-2DDD3EAB5F10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvImporter.Integrations.Tests", "src\CsvImporter.Integration.Test\CsvImporter.Integrations.Tests.csproj", "{65A13710-A191-4EEC-BA4A-26E5F2711CFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvImporter.Integrations.Tests", "src\CsvImporter.Integration.Test\CsvImporter.Integrations.Tests.csproj", "{65A13710-A191-4EEC-BA4A-26E5F2711CFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
