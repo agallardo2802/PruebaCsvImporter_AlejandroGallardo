@@ -1,6 +1,6 @@
 ﻿using Application.Configurations;
 using Application.Service;
-using Domain;
+using Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +24,7 @@ namespace AppImporter
 			services.AddScoped<IImporterCsvService, ImporterCsvService>();
 			services.AddScoped<IBulckCopy, BulckCopy>();
 			services.AddDbContext<ApplicationDbContext>(options => {
-				options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+				options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));	
 			});
 		}
 

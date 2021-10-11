@@ -52,6 +52,7 @@ namespace Application.Service
 		{
 			if (!File.Exists(routeCsv))
 			{
+				Log.Information("Start download csv in path: "+routeCsv);
 				WebClient wc = new WebClient();
 				wc.DownloadFile(archiveOptions.ArchiveCsvRoute, routeCsv);
 

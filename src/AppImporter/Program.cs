@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using System;
 using System.IO;
 
 namespace AppImporter
@@ -31,8 +30,7 @@ namespace AppImporter
 		static void BuildConfiguration(IConfigurationBuilder builder)
 		{
 			builder.SetBasePath(Directory.GetCurrentDirectory())
-			   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-			   .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
+			   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)			 
 			   .AddEnvironmentVariables();
 		}
 
